@@ -15,7 +15,7 @@ namespace ReportGeneration_Radosteva.Classes
             List<StudentContext> allStudents = new List<StudentContext>();
 
             MySqlConnection connection = Connection.OpenConnection();
-            MySqlDataReader BDStudents = Connection.Query("SELECT * FROM `student` ORDER BY `Name`;", connection);
+            MySqlDataReader BDStudents = Connection.Query("SELECT * FROM `student` ORDER BY `LastName`;", connection);
 
             while (BDStudents.Read())
             {

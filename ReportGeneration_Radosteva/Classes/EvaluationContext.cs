@@ -14,7 +14,7 @@ namespace ReportGeneration_Radosteva.Classes
             List<EvaluationContext> allEvaluations = new List<EvaluationContext>();
 
             MySqlConnection connection = Connection.OpenConnection();
-            MySqlDataReader BDEvaluations = Connection.Query("SELECT * FROM `evaluation` ORDER BY `Name`;", connection);
+            MySqlDataReader BDEvaluations = Connection.Query("SELECT * FROM `evaluation`;", connection);
 
             while (BDEvaluations.Read())
             {

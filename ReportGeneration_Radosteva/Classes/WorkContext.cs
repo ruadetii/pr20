@@ -15,7 +15,7 @@ namespace ReportGeneration_Radosteva.Classes
             List<WorkContext> allWorks = new List<WorkContext>();
 
             MySqlConnection connection = Connection.OpenConnection();
-            MySqlDataReader BDWorks = Connection.Query("SELECT * FROM `work` ORDER BY `Name`;", connection);
+            MySqlDataReader BDWorks = Connection.Query("SELECT * FROM `work` ORDER BY `Date`;", connection);
 
             while (BDWorks.Read())
             {

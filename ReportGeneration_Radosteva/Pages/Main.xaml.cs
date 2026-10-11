@@ -1,18 +1,8 @@
 ﻿using ReportGeneration_Radosteva.Classes;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ReportGeneration_Radosteva.Pages
 {
@@ -27,7 +17,7 @@ namespace ReportGeneration_Radosteva.Pages
         {
             InitializeComponent();
             CreateGroupUI();
-            CreateStudents();
+            CreateStudents(AllStudents);
         }
 
         public void CreateGroupUI() 
@@ -71,7 +61,11 @@ namespace ReportGeneration_Radosteva.Pages
 
         private void ReportGeneration(object sender, RoutedEventArgs e)
         {
-
+            if (cbGroups.SelectedIndex != cbGroups.Items.Count - 1) 
+            {
+                int idGroup = AllGroups.Find(x => x.Name == cbGroups.SelectedItem).Id;
+                Classes.Common.Report.Group(idGroup, this);
+            }
         }
     }
 }
